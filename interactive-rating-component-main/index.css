@@ -1,0 +1,27 @@
+.active-state {
+  background-color: maroon;
+}
+submitted-state {
+  background-color: palevioletred;
+}
+/* CSS */
+.button-container {
+  background-color: blue;
+  padding: 10px;
+  width: 200px;
+}
+
+.button-container:hover {
+  background-color: red;
+}
+
+button {
+  background-color: white;
+}
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
