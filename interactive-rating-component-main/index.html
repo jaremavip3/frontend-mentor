@@ -5,45 +5,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- displays site properly based on user's device -->
     <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
-    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="style.css" />
     <title>Frontend Mentor | Interactive rating component</title>
     <style></style>
   </head>
   <body>
-    <div id="active-state" class="active-state">active state</div>
-    <div class="button-container">
-      <button id="btn" class="btn">Button</button>
-    </div>
-    <!-- Rating state start -->
+    <main class="container">
+      <!-- Rating state start -->
+      <div id="active-state" class="active-state">
+        <div class="star-svg-container">
+          <img class="start-svg" src="/images/icon-star.svg" alt="Star Image" />
+        </div>
+        <h1 class="rate-question">How did we do?</h1>
+        <p class="rate-text-">
+          Please let us know how we did with your support request. All feedback is appreciated to
+          help us improve our offering!
+        </p>
+        <div class="rate-radios">
+          <input type="radio" id="star1" name="rate" value="1" />
+          <input type="radio" id="star2" name="rate" value="2" />
+          <input type="radio" id="star3" name="rate" value="3" />
+          <input type="radio" id="star4" name="rate" value="4" />
+          <input type="radio" id="star5" name="rate" value="5" />
+        </div>
+        <div class="button-container">
+          <button id="button-submit" class="button-submit">SUBMIT</button>
+        </div>
+      </div>
 
-    How did we do? Please let us know how we did with your support request. All feedback is
-    appreciated to help us improve our offering! 1 2 3 4 5 Submit
+      <div id="submitted-state" class="submitted-state">
+        <img class="thank-svg" src="images/illustration-thank-you.svg" alt="Thank You Image" />
+        <div class="selected-text-container">
+          <p class="selected-text">You selected <span id="rating-value"></span> out of 5</p>
+        </div>
+        <h2 class="thank-title">Thank you!</h2>
+        <p class="thank-text">
+          We appreciate you taking the time to give a rating. If you ever need more support, don’t
+          hesitate to get in touch!
+        </p>
+      </div>
 
-    <!-- Rating state end -->
-
-    <!-- Thank you state start -->
-
-    You selected
-    <!-- Add rating here -->
-    out of 5 Thank you! We appreciate you taking the time to give a rating. If you ever need more
-    support, don’t hesitate to get in touch!
-
-    <!-- Thank you state end -->
-
-    <div class="attribution">
-      Challenge by
-      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
-      Coded by <a href="#">Your Name Here</a>.
-    </div>
-
-    <script>
-      const button = document.getElementById("btn");
-      const ratingContainer = document.getElementById("active-state");
-
-      function changeContent() {
-        ratingContainer.innerHTML = '<div class="submitted-state">submitted state</div>';
-      }
-      button.addEventListener("click", changeContent);
-    </script>
+      <script>
+        // Get elements
+        const button = document.getElementById("button-submit");
+        const ratingContainer = document.getElementById("active-state");
+        const submittedContainer = document.getElementById("submitted-state");
+        const radios = document.getElementsByName("rate"); // Get all radio buttons
+        const ratingValueSpan = document.getElementById("rating-value");
+        // Change content
+        function changeContent() {
+          ratingContainer.style.display = "none";
+          submittedContainer.style.display = "flex";
+          ratingValueSpan.textContent = value;
+        }
+        let value = 0;
+        // Loop through radio buttons
+        for (let i = 0; i < radios.length; i++) {
+          // Add event listener to each radio button
+          radios[i].addEventListener("click", function () {
+            // Get value of selected radio button
+            value = this.value;
+          });
+        }
+        // Add event listener to button
+        button.addEventListener("click", changeContent);
+      </script>
+    </main>
   </body>
 </html>
