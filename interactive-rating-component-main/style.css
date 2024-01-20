@@ -61,6 +61,7 @@ body {
   align-self: center;
   width: 100%;
   margin-top: -15px;
+  border: 0;
 }
 .rate-radios input {
   /*Display stuff*/
