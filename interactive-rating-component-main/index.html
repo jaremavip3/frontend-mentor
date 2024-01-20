@@ -5,22 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- displays site properly based on user's device -->
     <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap" />
+
     <link rel="stylesheet" href="style.css" />
     <title>Frontend Mentor | Interactive rating component</title>
-    <style></style>
   </head>
   <body>
     <main class="container">
       <!-- Rating state start -->
-      <div id="active-state" class="active-state">
+      <section id="active-state" class="active-state">
         <div class="star-svg-container">
           <img class="start-svg" src="/images/icon-star.svg" alt="Star Image" />
         </div>
         <h1 class="rate-question">How did we do?</h1>
-        <p class="rate-text-">
+        <legend class="rate-text">
           Please let us know how we did with your support request. All feedback is appreciated to
           help us improve our offering!
-        </p>
+        </legend>
         <div class="rate-radios">
           <input type="radio" id="star1" name="rate" value="1" />
           <input type="radio" id="star2" name="rate" value="2" />
@@ -31,9 +34,9 @@
         <div class="button-container">
           <button id="button-submit" class="button-submit">SUBMIT</button>
         </div>
-      </div>
+      </section>
 
-      <div id="submitted-state" class="submitted-state">
+      <section id="submitted-state" class="submitted-state">
         <img class="thank-svg" src="images/illustration-thank-you.svg" alt="Thank You Image" />
         <div class="selected-text-container">
           <p class="selected-text">You selected <span id="rating-value"></span> out of 5</p>
@@ -43,7 +46,7 @@
           We appreciate you taking the time to give a rating. If you ever need more support, don’t
           hesitate to get in touch!
         </p>
-      </div>
+      </section>
 
       <script>
         // Get elements
