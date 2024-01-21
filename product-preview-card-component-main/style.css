@@ -1,5 +1,6 @@
 :root {
   --clr-cyan: hsl(158, 36%, 37%);
+  --clr-cyan-dark: hsl(159, 29%, 28%);
   --clr-cream: hsl(30, 38%, 92%);
 
   --clr-dark-blue: hsl(212, 21%, 14%);
@@ -88,20 +89,43 @@ body {
 .flex-group {
   display: flex;
   gap: 1rem;
+  align-items: center;
+}
+.visually-hidden:not(:focus):not(:active) {
+  position: absolute;
+  clip-path: inset(50%);
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  white-space: nowrap;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
 }
 /* card styling */
 .card {
   --content-padding: 1.5rem;
   --content-spacing: 1rem;
-
+  display: grid;
   background-color: var(--clr-white);
   border-radius: 1.5rem;
   overflow: hidden;
+  max-width: 600px;
+}
+@media (min-width: 600px) {
+  .card {
+    --content-padding: 2rem;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 600px) {
+  .card {
+    max-width: 400px;
+  }
 }
 .card__content {
   display: grid;
   gap: var(--content-spacing);
-  border: 3px solid var(--clr-cyan);
+
   padding: var(--content-padding);
 }
 .card__category {
@@ -113,4 +137,33 @@ body {
   line-height: 1;
   font-family: var(--ff-accent);
   color: var(--clr-dark-blue);
+}
+.card__discount-price {
+  color: var(--clr-cyan);
+  font-size: 2rem;
+  font-family: var(--ff-accent);
+  font-weight: var(--fw-bold);
+}
+.button {
+  justify-content: center;
+  align-items: center;
+  display: inline-flex;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-decoration: none;
+  background-color: var(--clr-cyan);
+  color: var(--clr-white);
+  border-radius: 8px;
+  border: 0;
+  padding: 0.8em 1.5em;
+}
+.button[data-icon="shopping-cart"]::before {
+  content: "";
+  width: 15px;
+  height: 16px;
+  background-image: url("../images/icon-cart.svg");
+}
+.button:is(:hover, :focus) {
+  background-color: var(--clr-cyan-dark);
 }
